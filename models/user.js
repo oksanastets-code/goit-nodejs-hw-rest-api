@@ -16,11 +16,11 @@ password: {
     enum: ["starter", "pro", "business"],
     default: "starter"
   },
-  token: {
-    type: String,
-    default: null,
-  },
-}, { versionKey: false, timestamp: true });
+//   token: {
+//     type: String,
+//     default: null,
+//   },
+}, { versionKey: false, timestamps: true });
 
 const User = model("user", userSchema); 
 
