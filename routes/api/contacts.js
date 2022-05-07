@@ -1,5 +1,5 @@
 const express = require("express");
-const {validation, ctrlWrapper} = require("../../middlewares");
+const {auth, validation, ctrlWrapper} = require("../../middlewares");
 const {joiSchema, favoriteJoiSchema} = require("../../models/contact");
 const {contacts: ctrl} = require("../../controllers")
 
@@ -7,11 +7,11 @@ const validateMiddleware = validation(joiSchema);
 
 const router = express.Router();
 
-router.get("/", ctrlWrapper(ctrl.listContacts));
+router.get("/", auth, ctrlWrapper(ctrl.listContacts));
 
 router.get("/:contactId", ctrlWrapper(ctrl.getContactById));
 
-router.post("/", validateMiddleware, ctrlWrapper(ctrl.addContact));
+router.post("/", auth, validateMiddleware, ctrlWrapper(ctrl.addContact));
 
 router.delete("/:contactId", ctrlWrapper(ctrl.removeContact));
 
