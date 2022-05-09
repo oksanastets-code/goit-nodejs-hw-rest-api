@@ -28,7 +28,7 @@ const joiSchema = Joi.object({
   password: Joi.string().required(),
   email: Joi.string().email({ minDomainSegments: 2 }).required(),
   subscription: Joi.string(),
-//   token: Joi.string().required(),
+  token: Joi.string(),
 });
 
 module.exports = {
