@@ -9,8 +9,8 @@ const resendEmail = async (req, res) => {
   if (user.verify) {
     throw new BadRequest("Verification has already been passed");
   }
-  const { verificationToken } = user.verificationToken;
-
+  const { verificationToken } = user;
+console.log(verificationToken);
   const mail = {
     to: email,
     subject: "Confirm your email",
